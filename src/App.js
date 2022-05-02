@@ -1,10 +1,10 @@
 import './App.css';
-import FoodList from './Components/FoodLIst/FoodList';
+import MealList from './Components/MealList/MealList';
 
 function App() {
   return (
     <div className="App">
-        <FoodList></FoodList>
+        <MealList></MealList>
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import React from 'react';
-import './FoodList.css'
-import FoodItem from './FoodItem';
+import './MealList.css';
+import MealItem from './MealItem/MealItem';
+import Card from '../UI/Card';
 
-const FoodList = () => {
+const MealList = () => {
 
     const DUMMY_MEALS = [
         {
@@ -32,12 +33,12 @@ const FoodList = () => {
       ];
   return (
 
-    <div>
+    <Card>
         {
-            DUMMY_MEALS.map((f=><FoodItem key={f.id} name={f.name} description={f.description} price={f.price}></FoodItem>))
+            DUMMY_MEALS.map((f=><MealItem key={f.id} name={f.name} description={f.description} price={f.price} id={f.id}></MealItem>))
         }
-    </div>
+    </Card>
   )
 }
 
-export default FoodList
+export default MealList
