@@ -15,7 +15,7 @@ const Cart = () => {
         </ul>
         <div className='total'>
             <span>Total Amount</span>
-            <span>35.62</span>
+            <span>$35.62</span>
         </div>
         <div className='actions'>
             <button className='button--alt'>Close</button>

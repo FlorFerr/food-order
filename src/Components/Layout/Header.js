@@ -2,11 +2,11 @@ import React from 'react';
 import './Header.css'
 import HeaderCartButton from './HeaderCartButton';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className='header'>
         <h1>ReactMeals</h1>
-        <HeaderCartButton/>
+        <HeaderCartButton onShowCart={props.onShow}/>
     </header>
   )
 }
