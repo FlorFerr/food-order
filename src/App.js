@@ -1,11 +1,13 @@
-import './App.css';
+import Header from './Components/Layout/Header';
 import MealList from './Components/MealList/MealList';
 
 function App() {
   return (
-    <div className="App">
-        <MealList></MealList>
-    </div>
+    <>
+      <Header></Header>
+      <MealList />
+  
+    </>
   );
 }
 
