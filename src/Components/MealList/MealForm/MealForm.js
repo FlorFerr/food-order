@@ -1,22 +1,34 @@
 
 import './MealForm.css';
-import Button from '../../UI/Button';
+
 import Input from '../../UI/Input';
 
 const MealForm = (props) => {
+
+  const onAdd = ( amount) => {
+    
+    console.log(amount)
+  }
+
+
     
 
 
   return (
     <form className='form'>
-        <Input label='Amount' input={
+        <Input label='Amount' 
+        onAdd={onAdd}
+        input={
           {id: 'amount ' + props.id,
           type: 'number',
           min: '1',
           step: '1',
-          defaultValue: '1'}
-          }/>
-        <Button />
+          defaultValue: '1',
+          min: '1',
+          max: '5'
+          }
+        }
+          />
     </form>
   )
 }
