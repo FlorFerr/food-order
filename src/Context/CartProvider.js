@@ -15,7 +15,7 @@ const CartProvider = (props) => {
         }else{
             const cartAux = cart.map((product=>{
                 if(product.id === item.id){
-                    product.cantidad+= q
+                    product.cantidad = Number(product.cantidad) + Number(q)
                 }
                 return product
             }))
