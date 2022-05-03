@@ -18,7 +18,13 @@ const Cart = (props) => {
 
 
   return (
+
+    
     <Modal onClose={props.onClose}>
+
+        {!hasItems ? <h2>No hay productos en el carrito</h2> :
+        
+        <>
         <ul className='cart-items'>
             {cart.map((item) => { return (
                 
@@ -33,8 +39,8 @@ const Cart = (props) => {
         </div>
         <div className='actions'>
             <button onClick={props.onClose} className='button--alt'>Close</button>
-            { hasItems && <button className='button' >Order</button>}
-        </div>
+            
+        </div></>}
     </Modal>
   )
 }
