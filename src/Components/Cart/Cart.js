@@ -8,8 +8,9 @@ import './Cart.css'
 const Cart = (props) => {
 
     const {cart} = useContext(CartContext)
+    console.log(cart[0])
 
-    const cartItems = [{id: 'c1', name: 'Sushi', amount: 2, price: 12.99}]
+    //const cartItems = [{id: 'c1', name: 'Sushi', amount: 2, price: 12.99}]
 
 
 
@@ -18,7 +19,10 @@ const Cart = (props) => {
     <Modal onClose={props.onClose}>
         <ul className='cart-items'>
             {cart.map((item) => { return (
-                <li key={item.id}>{item.name}</li>)
+                
+                <li key={item.id}>{item.name} {item.price} </li>
+                
+                )
             })}
         </ul>
         <div className='total'>

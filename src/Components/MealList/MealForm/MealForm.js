@@ -2,12 +2,21 @@
 import './MealForm.css';
 
 import Input from '../../UI/Input';
+import { useContext } from 'react';
+import CartContext from '../../../Context/CartContext';
 
 const MealForm = (props) => {
 
+  
+
+  const {cartContext} = useContext(CartContext)
+
   const onAdd = ( amount) => {
     
-    console.log(amount)
+    
+    
+
+    cartContext.addItem({id: props.id, name: props.name, price: props.price}, amount)
   }
 
 
@@ -24,7 +33,6 @@ const MealForm = (props) => {
           min: '1',
           step: '1',
           defaultValue: '1',
-          min: '1',
           max: '5'
           }
         }

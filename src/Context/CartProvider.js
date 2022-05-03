@@ -9,7 +9,7 @@ const CartProvider = (props) => {
     const addItemHandler = (item, q) => {
         const isInCart = cart.find(produc =>produc.id === item.id)
         if(!isInCart){
-            setCart([...cart,{id: item.id, name: item.name, cantidad: q}])
+            setCart([...cart,{id: item.id, name: item.name, price: item.price, cantidad: q}])
         }
          
 
