@@ -12,6 +12,8 @@ const Cart = (props) => {
 
     //const cartItems = [{id: 'c1', name: 'Sushi', amount: 2, price: 12.99}]
 
+    const hasItems = cart.length > 0
+
 
 
 
@@ -31,7 +33,7 @@ const Cart = (props) => {
         </div>
         <div className='actions'>
             <button onClick={props.onClose} className='button--alt'>Close</button>
-            <button className='button' >Order</button>
+            { hasItems && <button className='button' >Order</button>}
         </div>
     </Modal>
   )
