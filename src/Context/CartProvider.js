@@ -10,6 +10,15 @@ const CartProvider = (props) => {
         const isInCart = cart.find(produc =>produc.id === item.id)
         if(!isInCart){
             setCart([...cart,{id: item.id, name: item.name, price: item.price, cantidad: q}])
+        }else{
+            const cartAux = cart.map((product=>{
+                if(product.id === item.id){
+                    product.cantidad+= q
+                }
+                return product
+            }))
+            setCart(cartAux)
+            console.log(cart)
         }
          
 

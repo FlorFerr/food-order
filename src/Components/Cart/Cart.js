@@ -8,7 +8,7 @@ import './Cart.css'
 const Cart = (props) => {
 
     const {cart} = useContext(CartContext)
-    console.log(cart[0])
+    
 
     //const cartItems = [{id: 'c1', name: 'Sushi', amount: 2, price: 12.99}]
 
@@ -20,7 +20,7 @@ const Cart = (props) => {
         <ul className='cart-items'>
             {cart.map((item) => { return (
                 
-                <li key={item.id}>{item.name} {item.price} </li>
+                <li key={item.id}>{item.name} ${item.price} x{item.cantidad}</li>
                 
                 )
             })}
