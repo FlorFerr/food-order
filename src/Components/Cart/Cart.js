@@ -7,7 +7,7 @@ import './Cart.css'
 
 const Cart = (props) => {
 
-    const {cart} = useContext(CartContext)
+    const {cart, total} = useContext(CartContext)
     
 
     //const cartItems = [{id: 'c1', name: 'Sushi', amount: 2, price: 12.99}]
@@ -27,7 +27,7 @@ const Cart = (props) => {
         </ul>
         <div className='total'>
             <span>Total Amount</span>
-            <span>$35.62</span>
+            <span>${total.toFixed(2)}</span>
         </div>
         <div className='actions'>
             <button onClick={props.onClose} className='button--alt'>Close</button>

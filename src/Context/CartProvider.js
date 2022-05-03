@@ -5,11 +5,13 @@ import CartContext from './CartContext'
 const CartProvider = (props) => {
 
     const [cart, setCart] = useState([])
+    const [total, setTotal] = useState(0)
 
     const addItemHandler = (item, q) => {
         const isInCart = cart.find(produc =>produc.id === item.id)
         if(!isInCart){
             setCart([...cart,{id: item.id, name: item.name, price: item.price, cantidad: q}])
+            setTotal(total + (q*item.price))
         }else{
             const cartAux = cart.map((product=>{
                 if(product.id === item.id){
@@ -18,6 +20,7 @@ const CartProvider = (props) => {
                 return product
             }))
             setCart(cartAux)
+            setTotal(total + (q*item.price))
             console.log(cart)
         }
          
@@ -35,7 +38,7 @@ const CartProvider = (props) => {
 
     
   return (
-      <CartContext.Provider value={{cartContext, cart}}>
+      <CartContext.Provider value={{cartContext, cart, total}}>
           {props.children}
       </CartContext.Provider>
     
