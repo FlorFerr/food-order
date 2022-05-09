@@ -1,10 +1,26 @@
-
+import { useContext } from 'react';
+import CartContext from '../../Context/CartContext';
 import './CartItem.css';
 
 const CartItem = (props) => {
 
-  
+  /*const { cart } = useContext(CartContext)
 
+  const incrementHandler = () => {
+
+    
+    const itemsCart = cart.find(item => item.id === 'm1')
+    const cantidadItem = Number(itemsCart.cantidad) + 1
+
+    console.log(cantidadItem)
+     
+   
+
+  }*/
+
+ 
+  
+ 
  
   return (
     <li className='cart-item'>
