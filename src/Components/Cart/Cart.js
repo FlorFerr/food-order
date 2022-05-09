@@ -7,11 +7,10 @@ import Checkout from './Checkout';
 
 const Cart = (props) => {
     const [isCheckout, setCheckout] = useState(false)
+    const [isSubmitting, setIsSubmitting] =  useState(false)
+    const [didSubmit, setDidSubmit] = useState(false)
 
     const {cart, total} = useContext(CartContext)
-    
-
-
     const hasItems = cart.length > 0
 
     
@@ -19,24 +18,23 @@ const Cart = (props) => {
         setCheckout(true)
       }
   
-      const submitOrderHandler = (userData) => {
-        fetch('https://foodorder-665d5-default-rtdb.firebaseio.com/orders.json', {
+    const submitOrderHandler = async (userData) => {
+        setIsSubmitting(true)
+        await fetch('https://foodorder-665d5-default-rtdb.firebaseio.com/orders.json', {
           method: 'POST',
           body: JSON.stringify({
             user: userData,
             order: cart
           })
         })
-      }
+        setIsSubmitting(false)
+        setDidSubmit(true)
+    }
 
 
-
-  return (
-
-    
-    <Modal onClose={props.onClose}>
-
-        {!hasItems ? <h2>No hay productos en el carrito</h2> :
+    const modalContent = 
+    <>
+     {!hasItems ? <h2>No hay productos en el carrito</h2> :
         
         <>
         <ul className='cart-items'>
@@ -59,6 +57,16 @@ const Cart = (props) => {
              
          </div>}
         </>}
+    </>
+
+  return (
+
+    
+    <Modal onClose={props.onClose}>
+
+       {!isSubmitting && !didSubmit && modalContent}
+       {isSubmitting && <p>Enviando orden</p>}
+       {!isSubmitting && didSubmit && <p>Orden enviada</p>}
     </Modal>
   )
 }
