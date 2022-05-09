@@ -6,6 +6,12 @@ const CartProvider = (props) => {
 
     const [cart, setCart] = useState([])
     const [total, setTotal] = useState(0)
+    const [cant, setCant] = useState(1)
+
+    const cantHandler = (can) => {
+        setCant(can)
+    }
+
 
     const addItemHandler = (item, q) => {
         const isInCart = cart.find(produc =>produc.id === item.id)
@@ -21,7 +27,7 @@ const CartProvider = (props) => {
             }))
             setCart(cartAux)
             setTotal(total + (q*item.price))
-            console.log(cart)
+           
         }
          
 
@@ -34,11 +40,12 @@ const CartProvider = (props) => {
         totalAmount: 0,
         addItem: addItemHandler,
         removeItem: removeItemHandler,
+        cantItem: cantHandler
     }
 
     
   return (
-      <CartContext.Provider value={{cartContext, cart, total}}>
+      <CartContext.Provider value={{cartContext, cart, total, cant}}>
           {props.children}
       </CartContext.Provider>
     

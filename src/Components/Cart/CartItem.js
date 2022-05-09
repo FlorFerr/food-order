@@ -1,7 +1,10 @@
+
 import './CartItem.css';
 
 const CartItem = (props) => {
-    console.log(props.name)
+
+  
+
  
   return (
     <li className='cart-item'>

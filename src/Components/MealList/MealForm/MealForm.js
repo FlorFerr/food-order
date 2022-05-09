@@ -2,31 +2,23 @@
 import './MealForm.css';
 
 import Input from '../../UI/Input';
-import { useContext } from 'react';
-import CartContext from '../../../Context/CartContext';
+
 
 const MealForm = (props) => {
 
   
 
-  const {cartContext} = useContext(CartContext)
+  //const {cartContext} = useContext(CartContext)
 
-  const onAdd = ( amount) => {
-    
-    
-    
-
+  /*const onAdd = ( amount) => {
     cartContext.addItem({id: props.id, name: props.name, price: props.price}, amount)
-  }
-
-
-    
+  }*/
 
 
   return (
     <form className='form'>
         <Input label='Amount' 
-        onAdd={onAdd}
+        id={props.id} name={props.name} price={props.price}
         input={
           {id: 'amount ' + props.id,
           type: 'number',
